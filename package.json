@@ -1,0 +1,14 @@
+{ 
+"name": "ReVa",
+"version": "1.0.0",
+"description": "A Discord bot!",
+"main": "server.js",
+"scripts": {
+"test": "echo \"Error: no test specified\" && exit 1",
+"start": "node server.js",
+"lint": "eslint ." 
+},
+"keywords": [],
+"author": "",
+"license": "ISC"
+}
