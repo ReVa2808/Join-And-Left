@@ -11,4 +11,39 @@ client.on('message', msg => {
   } 
 });
 
+client.on('message', msg => {
+  let args = msg.content.split(" "),
+      cmd = args[0];
+  if (cmd === prefix + "set") {
+    
+    if (args[1] === "join") {
+      
+      if (args[2] === "on") {
+        
+        
+        }
+      
+      if (args[2] === "off") {
+        
+        
+        
+        }
+      }
+    
+    if (args[1] === "left") {
+     
+      if (args[2] === "on") {
+        
+        
+        }
+      if (args[2] === "off") {
+        
+        
+        }
+      
+      }
+    
+    }
+})
+
 client.login('token');
