@@ -26,11 +26,17 @@ client.on('message', msg => {
       channelLeftId: "none",
       memberLeft: 0
       }
-    
+    let dataD = data[msg.guild.id];
     if (args[1] === "join") {
       
       if (args[2] === "on") {
-        
+        if (dataD.channelJoin === "on") return msg.reply("we have a join channel");
+        if (dataD.cat === "on") {
+          
+          } else {
+            
+            
+            }
         
         }
       
