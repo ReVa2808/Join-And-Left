@@ -72,13 +72,36 @@ client.on("message", message => {
       if(!message.channel.guild) return message.channel.send('**This is only for servers | ⚠️ **').then(m => m.delete(5000));
       
       let content = '';
+      /*photo start*/
+      	const canvas = Canvas.createCanvas(700, 250);
+      	const ctx = canvas.getContext('2d')
+        const background = await Canvas.loadImage('http://i8.ae/aByET')
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+      /*photo pouse*/
+      
              let fillter = m => m.author.id === message.author.id,
                  one = Math.floor(Math.random() * 10) + 1,
                  two = Math.floor(Math.random() * 10) + 1,
                  three = Math.floor(Math.random() * 10) + 1,
                  four = Math.floor(Math.random() * 10) + 1,
                  num = one two three four;
-             await message.channel.send('type this for vrify`' +num + '`').then(e => {
+      /*photo resume*/
+      ctx.font = '28px sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(num, canvas.width / 2.5, canvas.height / 1.8);
+      ctx.strokeStyle = '#74037b';
+      ctx.strokeRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+      ctx.closePath();
+      ctx.clip();
+      const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+      	ctx.drawImage(avatar, 25, 0, 200, 200);
+      
+      
+      const veryfiI = new Discord.MessageAttachment(canvas.toBuffer(), 'verify.png');
+      /*photo stop*/
+             await message.channel.send(veryfiI).then(e => {
      message.channel.awaitMessages(fillter, { time: 10 * 60 * 1000, max: 1 })
     .then(me => {
        let number = me.first().content;
