@@ -34,7 +34,15 @@ client.on('message', msg => {
       if (args[2] === "on") {
         if (dataD.channelJoin === "on") return msg.reply("we have a join channel");
         if (dataD.cat === "on") {
-          
+          msg.guild.categories.get(dataD.catId).createChannel(`${dataD.memberJoin} Today join`  , 'voice').then(c => {
+            
+      console.log(`Done make room in: \n ${msg.guild.name}`);
+            dataD.channelJoin = "on";
+            dataD.channelJoinId = c.id
+      c.overwritePermissions(msg.guild.id, {
+        CONNECT: false,
+        SPEAK: false
+      });
           } else {
             
             
