@@ -9,4 +9,7 @@
 "keywords": [],
 "author": "ReVa2808",
 "license": "ISC"
-}
+},
+"dependencies": {
+  "canvas":"^2.6.0"
+  }
