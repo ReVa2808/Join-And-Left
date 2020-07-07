@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fs = require("fs")
+const Canvas = require('canvas');
 const math = require("math")
 const client = new Discord.Client();
 let data = JSON.parse(fs.readFileSync("./data.json", "utf8"))
