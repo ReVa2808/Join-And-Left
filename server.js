@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fs = require("fs")
+const math = require("math")
 const client = new Discord.Client();
 let data = JSON.parse(fs.readFileSync("./data.json", "utf8"))
 client.on('ready', () => { 
@@ -62,5 +63,40 @@ client.on('message', msg => {
     
     }
 })
+
+
+
+client.on("message", message => {
+    if(message.content.startsWith(prefix + "verify")){
+      if(message.channel.id !== `channel id`) return message.channel.send(`**⚠️  You Are not in the correct room **`).then(m => m.delete(5000));
+      if(!message.channel.guild) return message.channel.send('**This is only for servers | ⚠️ **').then(m => m.delete(5000));
+      
+      let content = '';
+             let fillter = m => m.author.id === message.author.id,
+                 one = Math.floor(Math.random() * 10) + 1,
+                 two = Math.floor(Math.random() * 10) + 1,
+                 three = Math.floor(Math.random() * 10) + 1,
+                 four = Math.floor(Math.random() * 10) + 1,
+                 num = one two three four;
+             await message.channel.send('type this for vrify`' +num + '`').then(e => {
+     message.channel.awaitMessages(fillter, { time: 10 * 60 * 1000, max: 1 })
+    .then(me => {
+       let number = me.first().content;
+        me.first().delete();
+       /* ReVa */
+       if (number===num) {
+         message.member.addRole(message.guild.roles.find(role => role.name === 'role name'));
+
+message.reply('Thanks For verify your self');
+         
+         } else {
+           message.channel.send('the code is false')
+           }
+       })
+               })
+      })
+      });
+
+
 
 client.login('token');
