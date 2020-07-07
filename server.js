@@ -37,8 +37,8 @@ client.on('message', msg => {
           msg.guild.categories.get(dataD.catId).createChannel(`${dataD.memberJoin} Today join`  , 'voice').then(c => {
             
       console.log(`Done make room in: \n ${msg.guild.name}`);
-            dataD.channelJoin = "on";
-            dataD.channelJoinId = c.id
+            dataD.channelJoin === "on";
+            dataD.channelJoinId === c.id;
       c.overwritePermissions(msg.guild.id, {
         CONNECT: false,
         SPEAK: false
